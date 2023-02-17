@@ -1,33 +1,41 @@
 
-#include <cstring>
 #include <iostream>
-#include <string>
-#include <algorithm>
 
 using namespace std;
 
 int main(int argc, char** argv) {
 	
-	string OperacionAritmetica, OperacionParentesis;
-	int LocationStart, LocationEnd;
+	int num1, num2, opcion;
+	double resultado;
 	
 	cout << "Este programa te resuelve una operacion aritmetica sencilla(suma, resta, division, multiplicacion)\n\n";
-	cout << "Dame la operacion matematica: \n";
-	getline(cin, OperacionAritmetica);
+	cout << "Dame un numero: ";
+	cin >> num1;
+	cout << "Dame otro numero: ";
+	cin >> num2;
 	
+	cout << "Que desea hacer?\n1. Suma\n2. Resta\n3. Multiplicacion\n4. Division\n";
+	cin >> opcion;
 	
-	cout << OperacionAritmetica << "\n";
+	switch(opcion){
+		case 1:{
+			resultado = num1+num2; 
+			break;
+		}
+		case 2:{
+			resultado = num1-num2; 
+			break;
+		}
+		case 3:{
+			resultado = num1*num2; 
+			break;
+		}
+		case 4:{
+			resultado = num1/num2; 
+			break;
+		}
+	}
 	
-	
-	// while(OperacionAritmetica.find('(') != string::npos || OperacionAritmetica.find(')') != string::npos){
-		LocationStart = OperacionAritmetica.find('(');
-		LocationEnd = OperacionAritmetica.find(')');
-		
-		OperacionParentesis = OperacionAritmetica.substr(LocationStart+1, (LocationEnd-LocationStart)-1);
-	//}
-	
-	//OperacionAritmetica.erase(remove(OperacionAritmetica.begin(), OperacionAritmetica.end(), '('), OperacionAritmetica.end()); 
-	
-	cout << OperacionParentesis << "\n";
+	cout << "El resultado es: " << resultado;
 	
 }
