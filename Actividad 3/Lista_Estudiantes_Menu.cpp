@@ -1,25 +1,26 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 struct Estudiante{
 	double Calificacion;
-	char Nombre;
-	char Identificacion;
+	string Nombre;
+	string Identificacion;
 	
 	Estudiante *Siguiente;
 };
 
 
-void Agregar_Estudiante(Estudiante *& ,double, char, char);
+void Agregar_Estudiante(Estudiante *& ,double, string, string);
 void Actualizar_Calificacion_Estudiante(Estudiante *);
-void Buscar_Estudiante_Identificacion(Estudiante *, char);
+void Buscar_Estudiante_Identificacion(Estudiante *, string);
 void Mostrar_Lista_Estudiantes(Estudiante *);
 
 int main(int argc, char** argv) {
 	
 	Estudiante *Lista = NULL;
 	double Calificacion;
-	char Nombre, Identificacion;
+	string Nombre, Identificacion;
 	int opcion = 0, AuxOpcion;
 	
 	
@@ -86,7 +87,7 @@ int main(int argc, char** argv) {
 
 
 
-void Agregar_Estudiante(Estudiante *&Lista, double Calificacion, char Nombre, char Identificacion){
+void Agregar_Estudiante(Estudiante *&Lista, double Calificacion, string Nombre, string Identificacion){
 	//Inicializar un nuevo Estudiante para insertar el numero
 	Estudiante* Nuevo_Estudiante = new Estudiante();
 	Estudiante* Aux;
@@ -144,7 +145,7 @@ void Actualizar_Calificacion_Estudiante(Estudiante *Lista){
 	cout << "\nSe ha actualizado el Estudiante " << Numero_Estudiante << "\n";
 }
 
-void Buscar_Estudiante_Identificacion(Estudiante *Lista, char Identificacion){
+void Buscar_Estudiante_Identificacion(Estudiante *Lista, string Identificacion){
 	int Numero_Estudiantes = 0;
 	while(Lista != NULL){
 		Numero_Estudiantes++;
@@ -154,6 +155,8 @@ void Buscar_Estudiante_Identificacion(Estudiante *Lista, char Identificacion){
 		Lista = Lista -> Siguiente; //Avanza al siguiente nodo
 	}
 }
+
+
 
 
 
