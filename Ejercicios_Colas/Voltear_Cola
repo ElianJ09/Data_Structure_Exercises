@@ -1,0 +1,46 @@
+#include <iostream>
+#include <stdlib.h>
+#include <queue>
+#include <stack>
+
+using namespace std;
+
+//Voltea una cola
+void reverseQueue(queue<int>& Cola){
+    stack <int> PilaAux;
+    while(Cola.empty() != true){
+        PilaAux.push(Cola.front());
+        Cola.pop();
+    }
+    
+    while(PilaAux.empty() != true){
+        Cola.push(PilaAux.top());
+        PilaAux.pop();
+    }
+}
+//Imprime una cola
+void printQueue(queue<int> Cola){
+    while(Cola.empty() != true){
+        cout << Cola.front()<< "\n";
+        Cola.pop();
+    }
+}
+int main(){
+    
+    queue<int> Myqueue;
+    
+    Myqueue.push(1);
+    Myqueue.push(2);
+    Myqueue.push(3);
+    Myqueue.push(4);
+    Myqueue.push(5);
+    
+    cout << "Antes del reverse: \n";
+    printQueue(Myqueue);
+    
+    cout << "Despues del reverse: \n";
+    reverseQueue(Myqueue);
+    printQueue(Myqueue);
+
+    return 0;
+}
